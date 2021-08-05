@@ -1,11 +1,12 @@
 #!/bin/sh
 
-usage() { echo "Usage: $0 -J JOBNAME -D WORKDIR -C COMMAND [-p ARCH] [-c CPUS_PER_TASK] [-t TIME] [-o OUTPUT]" 1>&2; exit 1; }
+usage() { echo "Usage: $0 -J JOBNAME -C COMMAND [-D WORKDIR]  [-p ARCH] [-c CPUS_PER_TASK] [-t TIME] [-o OUTPUT]" 1>&2; exit 1; }
 
 TIME="1:00:00"
 ARCH="cclake,skylake,skylake-himem"
 CPUS_PER_TASK="1"
 OUTPUT="%x-%j.out"
+WORKDIR="$PWD"
 
 while getopts "J:c:t:p:D:C:o:" opt; do
     case $opt in
