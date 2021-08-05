@@ -35,7 +35,7 @@ if [ -z "${JOBNAME}" ] || [ -z "${CPUS_PER_TASK}" ] || [ -z "${TIME}" ] || [ -z 
     usage
 fi
 
-printf 'JOBNAME=<%s>\nCPUS_PER_TASK=<%s>\nTIME=<%s>\nARCH=<%s>\nWORKDIR=<%s>\nCOMMAND=<%s>\nOUTPUT=<%s>\n' "$JOBNAME" "$CPUS_PER_TASK" "$TIME" "$ARCH" "$WORKDIR" "$COMMAND" "$OUTPUT"
+printf 'JOBNAME=%s\nCPUS_PER_TASK=%s\nTIME=%s\nARCH=%s\nWORKDIR=%s\nCOMMAND=%s\nOUTPUT=%s\n' "$JOBNAME" "$CPUS_PER_TASK" "$TIME" "$ARCH" "$WORKDIR" "$COMMAND" "$OUTPUT"
 
 # Substitution to escape the forward slashes, which are used as delimiters in the sed command
 COMMAND="${COMMAND//\//\\/}"
