@@ -5,7 +5,7 @@ usage() { echo "Usage: $0 -J JOBNAME -C COMMAND [-D WORKDIR]  [-p ARCH] [-c CPUS
 TIME="1:00:00"
 ARCH="cclake,skylake,skylake-himem"
 CPUS_PER_TASK="1"
-OUTPUT="%x-%j.out"
+OUTPUT="%x-%j.slurm.out"
 WORKDIR="$PWD"
 
 while getopts "J:c:t:p:D:C:o:" opt; do
