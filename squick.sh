@@ -41,7 +41,7 @@ printf 'JOBNAME=%s\nCPUS_PER_TASK=%s\nTIME=%s\nARCH=%s\nWORKDIR=%s\nCOMMAND=%s\n
 COMMAND="${COMMAND//\//\\/}"
 
 # For some reason, two substitutions (both $COMMAND and $WORKDIR) did not work
-sed "s/<COMMAND>/$COMMAND/; s/<WORKDIR>/${WORKDIR//\//\\/}/" /home/tw395/bashScripts/squick/squick_slurm_submit_template >"/home/tw395/bashScripts/squick/squick_slurm_submit_$JOBNAME"
+sed "s/<COMMAND>/$COMMAND/; s/<WORKDIR>/${WORKDIR//\//\\/}/; s/<OMP_NO_OF_THREADS>/$CPUS_PER_TASK/;" /home/tw395/bashScripts/squick/squick_slurm_submit_template >"/home/tw395/bashScripts/squick/squick_slurm_submit_$JOBNAME"
 
 sbatch -J $JOBNAME -A MRC-BSU-SL2-CPU -N 1 -n 1 -c $CPUS_PER_TASK -t $TIME --mail-type "FAIL" -p "$ARCH" -D "$WORKDIR" -o "$OUTPUT" "/home/tw395/bashScripts/squick/squick_slurm_submit_$JOBNAME"
 
